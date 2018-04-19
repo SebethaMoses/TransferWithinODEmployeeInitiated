@@ -1,0 +1,17 @@
+--- !<Form>
+autoNumber:
+  padding: 6
+  prefix: HMI
+formType: PDF
+name: Transfer Letter Employee Initiated
+node: HR/Transfer Within OD Employee Initiated/Transfer Letter
+template: System/forms/transfer_letter_form.pdf
+
+--- !<Form>
+autoNumber:
+  padding: 6
+  prefix: HMI
+formType: PDF
+name: Transfer Request Employee Initiated
+node:  HR/Transfer Within OD Employee Initiated/Transfer Request
+template: System/forms/acknowledge_transfer_employee.pdf

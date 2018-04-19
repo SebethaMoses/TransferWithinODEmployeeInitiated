@@ -1,0 +1,17 @@
+--- !<Node>
+tree:
+  HR:
+    Transnet Transfer Of Employee:
+      Transfer Within OD Employee Initiated:
+        Transfer Request:
+          $indexes:
+          - name: formNo
+            indexType: AUTO_NUMBER
+            autoNumber: {padding: 6, prefix: HMI}
+          $rules:
+          - {rule: allocate, to: TransferRequestWithinOD, sync: 'false', events: Document.create}
+        Transfer Letter:
+          $indexes: [formNo, grade]
+          $rules:
+          - {rule: allocate, to: TransferLetterWithinOD, sync: 'false', events: Document.create}
+

@@ -1,0 +1,53 @@
+
+//decline_comments
+custom["a4bde294-7272-b6f6-ce91-db61bbd8507a"]={
+    hidden: true
+}
+
+//--end
+
+//signature2
+custom["4cfdb009-5ccb-9600-4b42-89e4db6d769f"]={
+    onChange: function() {
+        var value = this.value;
+        if (value.reason == "Declined") {
+            this.form.declineReasons.hidden = false;
+            this.form.decline_comments.value = "";
+            this.form.decline_comments.hidden = false;
+            this.form.decline_comments.required = true;
+        } else {
+            this.form.declineReasons.hidden = true;
+            this.form.decline_comments.value = "";
+            this.form.decline_comments.hidden = true;
+            this.form.decline_comments.required = false;
+        }
+    }
+}
+
+//--end
+
+//grade
+custom["b531af93-bef0-a299-513d-11685271892d"]={
+    onChange: function() {
+        if (this.value == 'C') {
+            form.form.approver_label.value = 'COAM'
+        }
+        if (this.value == 'D') {
+            form.form.approver_label.value = 'GM HR'
+        }
+        if (this.value == 'G and Below') {
+            form.form.approver_label.value = 'HCM'
+        }
+        if (this.value == 'E to F') {
+            form.form.approver_label.value = 'SM HR'
+        }
+    }
+}
+//--end
+
+//declineReasons
+custom["5720f2b2-2826-6597-504d-01e2ff4ea84b"]={
+    hidden: true
+}
+
+//--end

@@ -1,0 +1,35 @@
+
+//start_date
+custom["d54b1ebb-7aca-581a-59e3-fddb8e1d462e"]={
+    validations: 'future'
+}
+
+//--end
+
+//manager_sap_no
+custom["70603726-3809-6de0-d3e7-61d102149a5c"]={
+    onChange: function() {
+        if (is.empty(this.value)) {
+            form.form.manager_name.value = '';
+            return;
+        }
+        var me = this;
+        if (me.value == form.form.employee_sap_no.value) {
+            me.value = '';
+            Msg.error("You cannot add yourself as a line manager");
+            return false;
+        }
+        return HTTP.get('/data/sap_employee?filter=' + this.value).then(function(data) {
+            if (data.length == 0) {
+                Msg.error("Invalid SAP No");
+                return false;
+            }
+            var employee = data[0];
+            form.form.manager_name.value = employee.name;
+            form.form.manager_business.value = employee.business;
+            form.form.manager_center.value = employee.center;
+            form.form.business.value = employee.business;
+        });
+    }
+}
+//--end
